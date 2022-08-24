@@ -4,8 +4,17 @@ theme:
   name: material
   features:
     - header.autohide # hide header on scroll
-    - navigation.sections # fold left side children
-    - navigation.tabs
+    # - navigation.sections # uncomment to NOT fold left side children
+    # - navigation.tabs
+    - navigation.indexes 
+    - search
+    - search.highlight # highlight search occurences
+    - search.suggest # autocomplete search terms
+    - navigation.tracking # update link on scroll
+    - toc.integrate # toc on left, not right
+    - navigation.expand
+
+
   palette: 
     - scheme: slate # Palette toggle for dark mode
       primary: deep purple
@@ -18,13 +27,26 @@ theme:
         icon: material/brightness-7 
         name: Switch to dark mode
 nav:
-  - Home: index.md
-  - Test: https://google.com
+  - Math/Statistics: index.md
   # - "<p>LinkedIn &nbsp<i class='fa-solid fa-arrow-up-right-from-square'></i></p>": foo
+  - Machine Learning: ml.md
+    # - Neural Networks: ml/ann.md
+    # - Datasets: ml/data.md
+    # - Evaluation: ml/evaluation.md
+  - Quant: quant.md
+  - Finance: fin.md
+  - Word Problems: wordprobs.md
+  - Code Puzzles: codepuzzles.md
 
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
+  # Syntax highlighting
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets # transclusions
+  - pymdownx.superfences # rescursive embeddings?
 
 extra_javascript:
   - js/mathjax.js
